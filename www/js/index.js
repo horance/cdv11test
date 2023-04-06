@@ -26,4 +26,15 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+    $('#save').click(save);
+    $('#load').click(load);
+}
+
+function save() {
+    var val = $('#result').val();
+    window.localStorage.setItem('testkey', val);
+}
+
+function load() {
+    $('#result').val(window.localStorage.getItem('testkey'));
 }
